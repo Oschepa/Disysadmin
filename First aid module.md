@@ -1,4 +1,4 @@
-1. а надо было учить !!!!  Внимание, осторожно с кодом !!!!
+1. Настройка red os для демо экзамена 2025, внизу ffr, openvswitch и другое
 <hr>
 <h2>nftables (isp, hq-rtr, br-rtr)</h2>
 
@@ -112,7 +112,7 @@ nano /etc/sudoers <br>
 
 ![](/1_modul/14.jpg)
 
-<h2>демо 2025, пользователь sshuser (hq-srv, br-srv)</h2>
+<h2>пользователь sshuser (hq-srv, br-srv)</h2>
 
 adduser sshuser -u 1010 <br>
 passwd sshuser (пароль P@ssw0rd) <br>
@@ -130,7 +130,7 @@ nano /etc/issue.net
 
 systemctl restart sshd
 
-<h2>Настройка FRR в Red Os(hq-rtr, br-rtr). Демо 2025</h2>
+<h2>Настройка FRR в Red Os(hq-rtr, br-rtr)</h2>
 
 dnf install frr -y <br>
 nano /etc/frr/daemons <br>
