@@ -112,7 +112,7 @@ nano /etc/sudoers <br>
 
 ![](/1_modul/14.jpg)
 
-<h2>Пользователь sshuser (hq-srv, br-srv)</h2>
+<h2>демо 2025, пользователь sshuser (hq-srv, br-srv)</h2>
 
 adduser sshuser -u 1010 <br>
 passwd sshuser (пароль P@ssw0rd) <br>
@@ -130,25 +130,25 @@ nano /etc/issue.net
 
 systemctl restart sshd
 
-<h2>frr (hq-rtr, br-rtr)</h2>
+<h2>Настройка frr в (hq-rtr, br-rtr)</h2>
 
-dnf install frr -y
-nano /etc/frr/daemons
+dnf install frr -y <br>
+nano /etc/frr/daemons <br>
 
 ![](/1_modul/19.jpg)
  
-systemctl enable –now frr
-vtysh
-conf t
-ip router-id [ip-адрес gre1]
-router ospf
-network [ip-сеть/маска] area 0
-area 0 autentication message-digest
-interface [ens3, ens4, ens4.100-999]
-ip ospf passive
-interface gre1
-ip ospf autentication message-digest
-ip ospf message-digest key 1 md5 PASSWORD 
-no ip ospf passive
-do wr mem или wr mem
-если в выводе show ip ospf neighbor ничего не показывает, перезагрузите роутеры
+systemctl enable –now frr <br>
+vtysh <br>
+conf t <br>
+ip router-id [ip-адрес gre1] <br>
+router ospf <br>
+network [ip-сеть/маска] area 0 <br>
+area 0 autentication message-digest <br>
+interface [ens3, ens4, ens4.100-999] <br>
+ip ospf passive <br>
+interface gre1 <br>
+ip ospf autentication message-digest <br>
+ip ospf message-digest key 1 md5 PASSWORD  <br>
+no ip ospf passive <br>
+do wr mem или wr mem <br>
+если в выводе show ip ospf neighbor ничего не показывает, перезагрузите роутеры <br>
