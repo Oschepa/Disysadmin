@@ -83,8 +83,8 @@ nano /etc/sysconfig/named
 
 ![](/1_modul/18.jpg)
 
-systemctl daemon-reload
-nano /etc/system/resolved.conf <br>
+systemctl daemon-reload <br>
+nano /etc/system/resolved.conf 
 
 ![](/1_modul/9.jpg)
 
@@ -132,20 +132,23 @@ systemctl restart sshd
 
 <h2>frr (hq-rtr, br-rtr)</h2>
 
-dnf install frr -y <br>
-nano /etc/frr/daemons <br>
-Прописать ospfd=yes <br>
-systemctl enable –now frr <br>
-vtysh <br>
-conf t <br>
-router ospf <br>
-ospf router 1.1.1.1 (на втором 2.2.2.2) <br>
-network [ip-сеть/маска] area 0 <br>
-area 0 autentication message-digest <br>
-interface [ens3, ens4, ens4.100-999] <br>
-ip ospf passive <br>
-interface gre1 <br>
-ip ospf network point-to-point <br>
-ip ospf autentication message-digest <br>
-ip ospf message-digest key 1 md5 PASSWORD <br>
-do wr mem или wr mem <br>
+dnf install frr -y
+nano /etc/frr/daemons
+
+![](/1_modul/19.jpg)
+ 
+systemctl enable –now frr
+vtysh
+conf t
+ip router-id [ip-адрес gre1]
+router ospf
+network [ip-сеть/маска] area 0
+area 0 autentication message-digest
+interface [ens3, ens4, ens4.100-999]
+ip ospf passive
+interface gre1
+ip ospf autentication message-digest
+ip ospf message-digest key 1 md5 PASSWORD 
+no ip ospf passive
+do wr mem или wr mem
+если в выводе show ip ospf neighbor ничего не показывает, перезагрузите роутеры
