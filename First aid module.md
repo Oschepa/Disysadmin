@@ -130,7 +130,7 @@ nano /etc/issue.net
 
 systemctl restart sshd
 
-<h2>Настройка frr в (hq-rtr, br-rtr)</h2>
+<h2>Настройка FRR в Red Os(hq-rtr, br-rtr). Демо 2025</h2>
 
 dnf install frr -y <br>
 nano /etc/frr/daemons <br>
