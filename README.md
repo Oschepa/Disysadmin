@@ -1,3 +1,4 @@
+<meta name="description" content="Ваше новое описание страницы">
 Демо 2025 настройка 1 модуля, настройка openvswitch <br>
 Как настроить frr (hq-rtr, br-rtr) через vtysh <br>
 Так же, 2 модуль ДЭ25 открыт
