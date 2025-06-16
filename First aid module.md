@@ -20,6 +20,7 @@ systemctl enable --now nftables
 sysctl net.ipv4.ip_forward=1 >> /etc/sysctl.conf <br>
 
 <h2>openvswitch (hq-sw)</h2>
+
 nmcli device set [имя интерфейса] managed no <br>
 ip a a [ip-адрес/маска] dev ens3 <br>
 ip r a default via [ip-адрес gateway] dev ens3 <br>
@@ -33,14 +34,13 @@ nmcli connection add con-name ens5-p type ovs-port ifname ens5-p master switch0 
 nmcli connection add con-name mgmt-p type ovs-port ifname mgmt-p master switch0 ovs-port.tag 999 <br>
 nmcli connection add con-name ens3-i type ethernet ifname ens3 master ens3-p <br>
 nmcli connection add con-name ens4-i type ethernet ifname ens4 master ens4-p <br>
-nmcli connection add con-name ens5-i type ethernet ifname ens5 master ens5-p 
-
+nmcli connection add con-name ens5-i type ethernet ifname ens5 master ens5-p <br>
 nmcli connection add con-name mgmt-i type ovs-interface ifname mgmt master mgmt-p ipv4.method manual ipv4.addresses [ip-адрес/маска] ipv4.gateway [ip-адрес gateway] <br>
-
 nmcli connection up ens4-i <br>
 nmcli connection up ens5-i <br>
 nmcli connection up mgmt-i <br>
 nmcli connection up ens3-i <br>
+
 
 <h2>dhcp (hq-rtr)</h2>
 dnf install dhcp-server -y <br>
@@ -79,6 +79,11 @@ nano 10.arpa
 
 ![](/1_modul/8.jpg)
 
+nano /etc/sysconfig/named
+
+![](/1_modul/18.jpg)
+
+systemctl daemon-reload
 nano /etc/system/resolved.conf <br>
 
 ![](/1_modul/9.jpg)
